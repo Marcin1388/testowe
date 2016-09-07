@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="start">
+<head>
+    <meta charset="UTF-8">
+    <title>Tescik</title>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="firstCtrl" layout="column">
+<md-toolbar><h1>{{tekst}}</h1></md-toolbar>
+<div class="container" layout="row" flex>
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-14dp">
+        <md-list ng-repeat="user in users">
+            <!--<md-list-item>-->
+            <!--<md-button><md-icon md-svg-src="img/svg/avatar-1.svg" class="avatar"></md-icon></md-button>-->
+            </md-list-item>
+            <md-button>
+                <md-icon md-svg-src="{{user.imgPath}}" class="avatar"></md-icon>
+                {{user.name}}
+            </md-button>
+            </md-list-item>
+
+        </md-list>
+    </md-sidenav>
+    <md-content id="content" flex>
+
+    </md-content>
+</div>
+</div>
+
+</body>
+</html>
