@@ -1,7 +1,7 @@
 var app = angular.module('start', ['ngMaterial']);
 
 app.controller('firstCtrl', function ($scope) {
-    $scope.tekst = "Dziala ! :)";
+    $scope.tekst = "It's Working ! :)";
 
     $scope.users = [
         {

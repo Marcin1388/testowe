@@ -1,0 +1,23 @@
+{
+  "name": "testowe",
+  "version": "1.0.0",
+  "description": "testowanie gulpa",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcin1388/testowe.git"
+  },
+  "author": "Marcin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcin1388/testowe/issues"
+  },
+  "homepage": "https://github.com/Marcin1388/testowe#readme",
+  "devDependencies": {
+    "browser-sync": "^2.15.0",
+    "gulp": "^3.9.1"
+  }
+}

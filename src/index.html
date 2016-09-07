@@ -11,7 +11,7 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-controller="firstCtrl" layout="column">
+<body ng-controller="firstCtrl" layout="column" ng-cloak>
 <md-toolbar><h1>{{tekst}}</h1></md-toolbar>
 <div class="container" layout="row" flex>
     <md-sidenav md-is-locked-open="true" class="md-whiteframe-14dp">
@@ -24,8 +24,8 @@
                 {{user.name}}
             </md-button>
             </md-list-item>
-
         </md-list>
+
     </md-sidenav>
     <md-content id="content" flex>
 
