@@ -2,8 +2,9 @@ angular.module('start', ['ngMaterial'])
     .config(function ($mdIconProvider) {
         $mdIconProvider.defaultIconSet('./img/svg/avatars.svg', 128);
         $mdIconProvider.icon('share', './img/svg/share.svg', 24);
+        $mdIconProvider.icon('menu', './img/svg/menu.svg', 24);
     })
-    .controller('firstCtrl', function ($mdBottomSheet) {
+    .controller('firstCtrl', function ($mdBottomSheet, $mdSidenav) {
         this.tekst = "It's Working ! :)";
 
         this.users = [
@@ -26,37 +27,41 @@ angular.module('start', ['ngMaterial'])
 
         this.currUser = this.users[0];
 
-        this.setCurrentUser = function(user) {
+        this.setCurrentUser = function (user) {
             this.currUser = user;
             console.log('CURRENT: ' + this.currUser.name);
         };
 
-        this.getCurrentUser = function() {
+        this.getCurrentUser = function () {
             return this.currUser;
         };
 
-        this.openBottomSheet = function(user) {
+        this.openBottomSheet = function (user) {
             console.log('CURRENT BOTTOM: ' + this.currUser.name);
             $mdBottomSheet.show({
-                controller : "firstCtrl",
-                controllerAs : "fCtrl",
-                templateUrl: "userTmp.html",
-                $viewChangeListeners : true,
-                parent : angular.element(document.querySelector('#content'))
+                controller: "firstCtrl",
+                controllerAs: "fCtrl",
+                templateUrl: "./template/userBottomTemp.html",
+                $viewChangeListeners: true,
+                parent: angular.element(document.querySelector('#content'))
             }).then(function () {
                 this.alert('kliknieto :)');
             });
         };
 
-    });
+        this.toggleLeftSidenav = function() {
+            $mdSidenav('leftSidenav').toggle();
+        }
 
-    // .directive('showUserInformation', function () {
-    //    return {
-    //        restrict : 'AE',
-    //        scope : {
-    //            user : '='
-    //        },
-    //        templateUrl : 'userTmp.html'
-    //        // template: "<md-bottom-sheet></md-bottom-sheet><div><h1>{{user.name}}</h1> <p>{{user.content}}</p></div></md-bottom-sheet>"
-    //    }
-    // });
+    })
+
+
+    .directive('showUserInformation', function () {
+        return {
+            restrict: 'AE',
+            scope: {
+                user: '='
+            },
+            templateUrl: './template/userTmp.html'
+        }
+    });
