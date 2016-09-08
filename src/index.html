@@ -11,24 +11,27 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-controller="firstCtrl" layout="column" ng-cloak>
-<md-toolbar><h1>{{tekst}}</h1></md-toolbar>
+<body ng-controller="firstCtrl as first" layout="column" ng-cloak>
+<md-toolbar><h1>{{first.tekst}}</h1></md-toolbar>
 <div class="container" layout="row" flex>
     <md-sidenav md-is-locked-open="true" class="md-whiteframe-14dp">
-        <md-list ng-repeat="user in users">
-            <!--<md-list-item>-->
-            <!--<md-button><md-icon md-svg-src="img/svg/avatar-1.svg" class="avatar"></md-icon></md-button>-->
+        <md-list ng-repeat="user in first.users">
             </md-list-item>
-            <md-button>
-                <md-icon md-svg-src="{{user.imgPath}}" class="avatar"></md-icon>
+            <md-button ng-click="first.setCurrentUser(user)">
+                <md-icon md-svg-icon="{{user.imgPath}}" class="avatar"></md-icon>
                 {{user.name}}
             </md-button>
             </md-list-item>
         </md-list>
-
     </md-sidenav>
     <md-content id="content" flex>
-
+        <md-icon md-svg-icon="{{first.currUser.imgPath}}" class="avatar"></md-icon>
+        <h1>{{first.currUser.name}}</h1>
+        <p>{{first.currUser.content}}</p>
+        <md-button class="share" ng-click="first.openBottomSheet(first.getCurrentUser())">
+            <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+        <!--<show-user-information user="first.getCurrentUser()"></show-user-information>-->
     </md-content>
 </div>
 </div>
