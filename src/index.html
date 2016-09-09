@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Tescik</title>
     <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
     <script src="lib/angular-aria/angular-aria.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
@@ -13,10 +14,11 @@
 </head>
 <body ng-controller="firstCtrl as first" layout="column" ng-cloak>
 <md-toolbar layout="row">
-    <md-button class="menu" ng-click="first.toggleLeftSidenav()">
+    <md-button class="menu" ng-click="first.toggleLeftSidenav()" hide-gt-sm aria-label="showUserDetails">
         <md-icon md-svg-icon="menu"></md-icon>
     </md-button>
-    <h1>{{first.tekst}}</h1></md-toolbar>
+    <h1>{{first.tekst}}</h1>
+</md-toolbar>
 <div class="container" layout="row" flex>
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="leftSidenav" class="md-whiteframe-14dp">
         <md-list ng-repeat="user in first.users">
@@ -30,7 +32,7 @@
     </md-sidenav>
     <md-content id="content" flex>
         <show-user-information user="first.getCurrentUser()"></show-user-information>
-        <md-button class="share" ng-click="first.openBottomSheet(first.getCurrentUser())">
+        <md-button class="share" ng-click="first.openBottomSheet(first.getCurrentUser())" aria-label="showUsersList">
             <md-icon md-svg-icon="share"></md-icon>
         </md-button>
     </md-content>

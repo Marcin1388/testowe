@@ -36,7 +36,7 @@ angular.module('start', ['ngMaterial'])
             return this.currUser;
         };
 
-        this.openBottomSheet = function (user) {
+        this.openBottomSheet = function () {
             console.log('CURRENT BOTTOM: ' + this.currUser.name);
             $mdBottomSheet.show({
                 controller: "firstCtrl",
@@ -44,8 +44,6 @@ angular.module('start', ['ngMaterial'])
                 templateUrl: "./template/userBottomTemp.html",
                 $viewChangeListeners: true,
                 parent: angular.element(document.querySelector('#content'))
-            }).then(function () {
-                this.alert('kliknieto :)');
             });
         };
 
