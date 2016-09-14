@@ -2,7 +2,14 @@
     <h1>LISTA</h1>
     <md-list ng-repeat="mount in listCtrl.mountains">
         <md-list-item>
-            <md-button href="#/mountain/{{mount.id}}">{{mount.mountain}}</md-button>
+            <tr>
+                <td>
+                    <md-content>{{mount.mountain}}</md-content>
+                </td>
+                <td>
+                    <md-button href="#/mountain/{{mount.id}}">Szczegoly</md-button>
+                </td>
+            </tr>
         </md-list-item>
     </md-list>
 

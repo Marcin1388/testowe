@@ -1,6 +1,7 @@
 /**
  * Created by marcinp on 12.09.16.
  */
+// app.controller('listController', function ($scope, mountainList) {
 app.controller('listController', function (mountainList) {
     this.mountains = mountainList.getAll();
 
@@ -27,20 +28,17 @@ app.factory('mountainList', function () {
         },
         getById: function (id) {
             var result = null;
-            angular.forEach(mountains, function (mountain) {
-                if (mountain.id == id) {
-                    result = mountain;
+            angular.forEach(mountains, function (m) {
+                if (m.id == id) {
+                    result = m;
                 }
-                return result;
             });
+            return result;
         }
     };
 
 });
 
-// app.controller('detailController', function ($routeParams, mountainList, $location) {
-app.controller('detailController', function ($scope, $routeParams, mountainList, $location) {
+app.controller('detailController', function ($routeParams, mountainList, $location) {
     this.detail = mountainList.getById($routeParams.id);
-    console.log("Z this: \"" + this.detail + "\"");
-    console.log("ID: " + $routeParams.id);
 });
