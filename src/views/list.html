@@ -1,16 +1,27 @@
-<md-content>
-    <h1>LISTA</h1>
-    <md-list ng-repeat="mount in listCtrl.mountains">
-        <md-list-item>
-            <tr>
-                <td>
-                    <md-content>{{mount.mountain}}</md-content>
-                </td>
-                <td>
-                    <md-button href="#/mountain/{{mount.id}}">Szczegoly</md-button>
-                </td>
-            </tr>
-        </md-list-item>
-    </md-list>
-
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card ng-repeat="mount in listCtrl.mountains" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}"
+                 md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{mount.mountain}}</span>
+                    <span class="md-subhead">Wysokosc: {{mount.metres}} m. n.p.m.</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <img ng-src="./img/brown-mountain-hi.png" class="md-media-lg card-media"/>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-raised" ng-click="listCtrl.setMountain(mount.id); listCtrl.showAlert($event);">
+                    Szczegoly
+                </md-button>
+                <md-button class="md-raised md-warn" ng-click="listCtrl.deleteMountain(mount.id);">
+                    Usun
+                </md-button>
+            </md-card-actions>
+        </md-card>
+        <div layout layout-padding layout-align="center end" style="height:200px">
+            <md-checkbox ng-model="showDarkTheme">Use 'Dark' Themed Cards</md-checkbox>
+        </div>
+    </div>
 </md-content>

@@ -1,1 +1,9 @@
-<h1> DETALE {{detailCtrl.detail | json}}</h1>
+<md-dialog aria-label="mountain-details">
+    <md-toolbar>
+        <div class="md-display-1">{{detailCtrl.current.mountain}}</div>
+    </md-toolbar>
+    <md-dialog-content>
+        <img style="max-width: 100%" src="./img/brown-mountain-hi.png"/>
+        <p>{{detailCtrl.current.description}}</p>
+    </md-dialog-content>
+</md-dialog>
