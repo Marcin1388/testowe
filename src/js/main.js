@@ -29,7 +29,6 @@ angular.module('start', ['ngMaterial'])
 
         this.setCurrentUser = function (user) {
             this.currUser = user;
-            console.log('CURRENT: ' + this.currUser.name);
         };
 
         this.getCurrentUser = function () {
@@ -42,9 +41,15 @@ angular.module('start', ['ngMaterial'])
                 controller: "firstCtrl",
                 controllerAs: "fCtrl",
                 templateUrl: "./template/userBottomTemp.html",
+                locals : {user : this.currUser},
+                bindToController : true,
                 $viewChangeListeners: true,
                 parent: angular.element(document.querySelector('#content'))
             });
+        };
+
+        this.hideBottomSheet = function() {
+            $mdBottomSheet.hide();
         };
 
         this.toggleLeftSidenav = function() {

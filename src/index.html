@@ -23,7 +23,7 @@
     <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="leftSidenav" class="md-whiteframe-14dp">
         <md-list ng-repeat="user in first.users">
             </md-list-item>
-            <md-button ng-click="first.setCurrentUser(user); first.toggleLeftSidenav();">
+            <md-button ng-click="first.setCurrentUser(user); first.toggleLeftSidenav(); first.hideBottomSheet();">
                 <md-icon md-svg-icon="{{user.imgPath}}" class="avatar"></md-icon>
                 {{user.name}}
             </md-button>
