@@ -6,7 +6,7 @@ app.controller('listController', function (mountainList, $mdDialog, $location) {
     this.mountain = this.mountains[0];
     this.showAlert = function (ev) {
         $mdDialog.show({
-                controller: "detailController",
+                controller: "listController",
                 controllerAs: "detailCtrl",
                 templateUrl: './views/details.html',
                 locals: {current: this.mountain},
